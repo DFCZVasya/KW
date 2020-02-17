@@ -1,0 +1,3 @@
+﻿  main.cpp
+F:\vasyas projects\KW\Project1\Project1\main.cpp(13,2): warning C4091: typedef : пропускается слева от "stack", когда ни одна переменная не объявлена
+  Project1.vcxproj -> F:\vasyas projects\KW\Project1\x64\Debug\Project1.exe
