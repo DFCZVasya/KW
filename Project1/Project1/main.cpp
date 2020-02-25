@@ -3,7 +3,6 @@
 #include <iostream>
 using namespace std;
 
-void smth();
 typedef struct List {
 	int value;
 	struct List* next;
@@ -17,11 +16,11 @@ void printList(const List* head) {
 	printf("\n");
 }
 
-void push(List** head, int data) {
+List* push(List* head, int data) {
 	List* tmp = (List*)malloc(sizeof(List));
 	tmp->value = data;
-	tmp->next = (*head);
-	(*head) = tmp;
+	tmp->next = (head);
+	return tmp;
 }
 
 
@@ -158,7 +157,8 @@ void deleteList(List** head) {
 
 int main()
 {
-	List* head;
+	List* head = NULL;
+	head = push(head, 10);
 	pushBack(head, 11);
 	pushBack(head, 12);
 	pushBack(head, 13);
@@ -170,7 +170,7 @@ int main()
 	return 0;
 }
 
-typedef struct stack
+/*typedef struct stack
 {
 	int* values;
 	int index, length;
@@ -269,4 +269,4 @@ void smth()
 	}
 	cout << endl;
 	free(input_numbers);
-}
+}*/

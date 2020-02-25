@@ -1,4 +1,2 @@
 ﻿  main.cpp
-G:\KW\Project1\Project1\main.cpp(177,2): warning C4091:  typedef : пропускается слева от "stack", когда ни одна переменная не объявлена
-G:\KW\Project1\Project1\main.cpp(177,2): warning C4091: G:\KW\Project1\Project1\main.cpp(162) : error C4700: использована неинициализированная локальная переменная "head"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(429,5): error MSB6006: "CL.exe" завершилась с кодом 2.
+  Project1.vcxproj -> G:\KW\Project1\x64\Debug\Project1.exe
