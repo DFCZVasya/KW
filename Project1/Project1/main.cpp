@@ -8,6 +8,13 @@ typedef struct List {
 	struct List* next;
 } List;
 
+
+typedef struct Queue {
+	List* first, * last;
+} Queue;
+
+
+
 void printList(const List* head) {
 	while (head) {
 		printf("%d ", head->value);
@@ -16,15 +23,17 @@ void printList(const List* head) {
 	printf("\n");
 }
 
+int returnListEl(List* head)
+{
+	return head->value;
+}
+
 List* push(List* head, int data) {
 	List* tmp = (List*)malloc(sizeof(List));
 	tmp->value = data;
 	tmp->next = (head);
 	return tmp;
 }
-
-
-
 
 
 int pop(List** head) {
@@ -153,7 +162,76 @@ void deleteList(List** head) {
 	free(*head);
 }
 
+Queue* CreateQueue()
+{
+	Queue* p = (Queue*)malloc(sizeof(Queue));
+	p->first = p->last = 0;
+	return p;
+}
 
+void inqueue(Queue* q, int x)
+{
+	if (q->last == 0)
+	{
+		q->first = push(q->first, x);
+		q->last = q->first;
+	}
+	else
+	{
+		pushBack(q->first, x);
+		q->last = getLast(q->first);
+	}
+
+}
+
+int outqueue(Queue* q)
+{ 
+	int retVal = returnListEl(q->first);
+	if(q->last != q ->first)
+	{
+		List* next = q->first->next;
+		free(q->first);
+		q->first = next;
+
+		return retVal;
+	}
+
+	clear(q);
+	return retVal;
+	
+}
+
+int getFirst(Queue* q)
+{
+	return returnListEl(q->first);
+}
+
+int isEmpty(Queue* q)
+{
+	return q->last == 0;
+}
+
+void clear(Queue* q)
+{
+	while (q->first)
+	{
+		List* next = q->first->next;
+		free(q->first);
+		q->first = next;
+	}
+	q->first = q->last = 0;
+}
+
+void destroyQueue(Queue* q)
+{
+	while (q->first)
+	{
+		List* next = q->first->next;
+		free(q->first);
+		q->first = next;
+	}
+	free(q);
+}
 
 int main()
 {
