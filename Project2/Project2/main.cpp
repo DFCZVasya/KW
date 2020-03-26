@@ -4,26 +4,24 @@
 
 int get_element_priority(char element)
 {
-	int priority = 0;
-	switch (element)
-	{
-	case '(' : priority = 1;
-		break;
-	case ')' : priority = 2;
-		break;
-	case '=' : priority = 3;
-		break;
-	case '+' : 
-	case '-' : priority = 4;
-		break;
-	case '*' :
-	case '/' : priority = 5;
-		break;
-	case '^' : priority = 6;
-		break;
-	}
-
-	return priority;
+    switch (element) {
+        case '(' :
+            return 1;
+        case ')' :
+            return 2;
+        case '=' :
+            return 3;
+        case '+' :
+        case '-' :
+            return 4;
+        case '*' :
+        case '/' :
+            return 5;
+        case '^' :
+            return 6;
+        default:
+            return -1;
+    }
 }
 
 std::string result_string(std::string input_string, Stack<char> operators)
