@@ -4,26 +4,24 @@
 
 int get_element_priority(char element)
 {
-	int priority = 0;
-	switch (element)
-	{
-	case '(' : priority = 1;
-		break;
-	case ')' : priority = 2;
-		break;
-	case '=' : priority = 3;
-		break;
-	case '+' : 
-	case '-' : priority = 4;
-		break;
-	case '*' :
-	case '/' : priority = 5;
-		break;
-	case '^' : priority = 6;
-		break;
+	switch (element) {
+	case '(':
+		return 1;
+	case ')':
+		return 2;
+	case '=':
+		return 3;
+	case '+':
+	case '-':
+		return 4;
+	case '*':
+	case '/':
+		return 5;
+	case '^':
+		return 6;
+	default:
+		return -1;
 	}
-
-	return priority;
 }
 
 std::string result_string(std::string input_string, Stack<char> operators)
@@ -38,6 +36,7 @@ std::string result_string(std::string input_string, Stack<char> operators)
 			i++;
 		}
 
+		operators.print_stack();
 		if (number.length() != 0)
 		{
 			output_str += number;
@@ -87,11 +86,17 @@ std::string result_string(std::string input_string, Stack<char> operators)
 int main()
 
 {
-	std::string s = "";
-	std::cout << s.length() << std::endl;
+	std::string s;
 	std::getline(std::cin, s);
 	Stack<char> operators;
-	std::cout << result_string(s, operators) << std::endl;
+	for (int i = 0; i < s.length(); i++)
+	{
+		operators.push(s[i]);
+		operators.print_stack();
+		operators.pop();
+	}
+	//operators.print_stack();
+	//std::cout << result_string(s, operators) << std::endl;
 
 
 	system("pause");

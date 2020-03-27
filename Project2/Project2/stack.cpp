@@ -39,8 +39,12 @@ public:
 
 	data top()
 	{
-		if (isEmpty())
+		if (!isEmpty())
+		{
+			std::cout << values[index] << std::endl;
 			return values[index];
+			
+		}		
 		else
 			return 0;
 	}
@@ -68,5 +72,13 @@ public:
 		}
 		else
 			return 0;
+	}
+
+	void print_stack()
+	{
+		for (int i = 0; i < length; i++)
+		{
+			std::cout << values[i] << std::endl;
+		}
 	}
 };
