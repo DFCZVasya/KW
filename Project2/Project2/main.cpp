@@ -99,6 +99,40 @@ std::string result_string(std::string input_string)
 			}
 			else
 			{
+				if (input_string[i] == '(')
+				{
+					operators.push(input_string[i]);
+				}
+				else
+				{
+					while (get_element_priority(operators.top()) >= get_element_priority(input_string[i]))
+					{
+						output_str += operators.pop();
+						output_str += ' ';
+					}
+					if (input_string[i] == ')')
+					{
+						while (operators.top() != '(')
+						{
+							output_str += operators.pop();
+							output_str += ' ';
+						}
+						operators.pop();
+					}
+					else
+					{
+						operators.push(input_string[i]);
+					}
+				}
+			}
+			
+			/*
+			if (operators.isEmpty())
+			{
+				operators.push(input_string[i]);
+			}
+			else
+			{
 				if (input_string[i] == ')')
 				{
 					while (operators.top() != '(')
@@ -122,8 +156,9 @@ std::string result_string(std::string input_string)
 						operators.push(input_string[i]);
 					}
 				}
-			}
+			}*/
 		}
+		
 
 		if (i == input_string.length()-1)//if some operators left in stack, we put them in the result string
 		{
