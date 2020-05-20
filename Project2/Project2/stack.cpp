@@ -3,11 +3,11 @@
 #include <iostream>
 
 
-template<typename data>
+template<typename T>
 class Stack
 {
 private:
-	data *values;
+	T *values;
 	int length, index;
 
 public:
@@ -15,18 +15,18 @@ public:
 	{
 		length = 1;
 		index = 0;
-		values = (data*)malloc(sizeof(data) * length);
+		values = (T*)malloc(sizeof(T) * length);
 	}
 
 	~Stack() {
 		destroy_stack();
 	}
 
-	void push(data value)
+	void push(T value)
 	{
 		if (index == length)
 		{
-			values = (data*)realloc(values, sizeof(data) * ++length);
+			values = (T*)realloc(values, sizeof(T) * ++length);
 		}
 		values[index] = value;
 		index++;
@@ -37,12 +37,12 @@ public:
 		return index == 0;
 	}
 
-	data top()
+	T top()
 	{
 		if (!isEmpty())
 		{
-			std::cout << values[index] << std::endl;
-			return values[index];
+			//std::cout << values[index-1] << std::endl;
+			return values[index-1];
 			
 		}		
 		else
@@ -54,20 +54,20 @@ public:
 		free(values);
 		length = 1;
 		index = 0;
-		values = (data*)malloc(sizeof(data) * length);
+		values = (T*)malloc(sizeof(T) * length);
 	}
 	void destroy_stack()
 	{
 		free(values);
 	}
 
-	data pop()
+	T pop()
 	{
 		if (!isEmpty())
 		{
-			data for_r = top();
+			T for_r = top();
 			index--;
-			values = (data*)realloc(values, sizeof(data) * --length);
+			values = (T*)realloc(values, sizeof(T) * --length);
 			return for_r;
 		}
 		else

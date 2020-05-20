@@ -1,4 +1,4 @@
 ﻿  main.cpp
-c:\work\kw\project2\project2\main.cpp(31): warning C4018: '<': signed/unsigned mismatch
-c:\work\kw\project2\project2\main.cpp(92): warning C4018: '<': signed/unsigned mismatch
+c:\work\kw\project2\project2\main.cpp(48): warning C4018: '<': signed/unsigned mismatch
+c:\work\kw\project2\project2\main.cpp(80): warning C4018: '<': signed/unsigned mismatch
   Project2.vcxproj -> C:\work\KW\Project2\Debug\Project2.exe
