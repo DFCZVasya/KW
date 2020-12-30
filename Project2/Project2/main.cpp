@@ -4,24 +4,24 @@
 
 int get_element_priority(char element)
 {
-	switch (element) {
-	case '(':
-		return 1;
-	case ')':
-		return 2;
-	case '=':
-		return 3;
-	case '+':
-	case '-':
-		return 4;
-	case '*':
-	case '/':
-		return 5;
-	case '^':
-		return 6;
-	default:
-		return -1;
-	}
+    switch (element) {
+        case '(' :
+            return 1;
+        case ')' :
+            return 2;
+        case '=' :
+            return 3;
+        case '+' :
+        case '-' :
+            return 4;
+        case '*' :
+        case '/' :
+            return 5;
+        case '^' :
+            return 6;
+        default:
+            return -1;
+    }
 }
 
 float simple_calculating(float left_number, float right_number, char operation)
